@@ -4,7 +4,7 @@ from copy import copy
 from datetime import datetime
 import os
 
-EXCEL_FILE = "my_bills.xlsx"
+EXCEL_FILE = "my_bills_clean.xlsx"
 
 # Currency list with country names and fixed INR rates
 CURRENCY_RATES = {
@@ -18,7 +18,8 @@ CURRENCY_RATES = {
     "GBP (United Kingdom)": 104.7,
     "JPY (Japan)": 0.56,
     "VND (Vietnam)": 0.0034,
-    "LKR (Sri Lanka)": 0.27
+    "LKR (Sri Lanka)": 0.27,
+    "GEL (Georgia)": 31.49
     # Add more if needed
 }
 
@@ -55,7 +56,7 @@ with st.form("bill_form"):
     bill_date = st.date_input("📅 Date of Bill", datetime.today())
 
     # Fixed category dropdown
-    fixed_categories = ["Flight", "Hotel", "Package", "Ride", "Food"]
+    fixed_categories = ["Flight", "Hotel", "Package", "Ride", "Food", "Food(Online)"]
     category = st.selectbox("🛍️ Category", fixed_categories)
 
     place = st.text_input("📍 Place")
